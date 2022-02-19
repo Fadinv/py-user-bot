@@ -13,7 +13,7 @@ bot_id = int(os.getenv('BOT_ID'))
 @app.on_message()
 async def hello(client, message):
     body = {"query": "{\n\t\t\tgetSendChats {\n\t\t\t\tid\n\t\t\t\ttgChatId\n\t\t\t    listen\n\t\t\t}\n\t\t}"}
-    res = requests.post('https://127.0.0.1:2000/graphql', verify=True, cert=('/etc/ssl/certificate.crt', '/etc/ssl/private/private.key'), json=body)
+    res = requests.post('https://127.0.0.1:2000/graphql', cert=('/etc/ssl/certificate.crt', '/etc/ssl/private/private.key'), json=body)
     send_chats = []
     get_send_chats = res.json()['data']['getSendChats']
     for i in range(len(get_send_chats)):
