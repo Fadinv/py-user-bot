@@ -7,8 +7,8 @@ import requests
 app = Client("my_account")
 
 load_dotenv(find_dotenv())
-channel_id = int(os.getenv('CHANNEL_ID'))
 bot_id = int(os.getenv('BOT_ID'))
+print('____ BOT ID ____', bot_id)
 
 @app.on_message()
 async def hello(client, message):
